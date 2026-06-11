@@ -53,7 +53,7 @@ async function readExcelTest(
     return output;
 }
 
-test.only('Upload download test validation', async ({ page }) => {
+test('Upload download test validation', async ({ page }) => {
 
     await page.goto(
         'https://rahulshettyacademy.com/upload-download-test/index.html'
@@ -82,7 +82,7 @@ test.only('Upload download test validation', async ({ page }) => {
     await page.locator('#fileinput').setInputFiles(downloadPath);
 
     const textLocator = page.getByText(searchText);
-
+    console.log("------------>"+textLocator);
     const desiredRow = await page
         .getByRole('row')
         .filter({ has: textLocator })
@@ -92,5 +92,5 @@ test.only('Upload download test validation', async ({ page }) => {
     console.log(desiredRow);
 
     expect(desiredRow).toBe(updateValue);
-    await page.pause();
+     
 });
