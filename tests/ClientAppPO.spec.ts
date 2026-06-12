@@ -51,7 +51,7 @@ test(`Client App Login ${dataSet.productName}`, async ({ page }) => {
 }
 
 
-customTest.only(`Client App Login Data From Test Fixtures`, async ({ page,testDataForOrder }) => {
+customTest(`Client App Login Data From Test Fixtures`, async ({ page,testDataForOrder }) => {
 
     const poManager = new POManager(page);
 
@@ -70,11 +70,11 @@ customTest.only(`Client App Login Data From Test Fixtures`, async ({ page,testDa
     const ordersReviewPage: OrdersReviewPage = poManager.getOrdersReviewPage();
     await ordersReviewPage.searchCountryAndSelect("ind", "India");
     await ordersReviewPage.fillCardDetails(testDataForOrder.cardNumber, testDataForOrder.cvv, testDataForOrder.cardName,testDataForOrder.expiryMonth, testDataForOrder.expiryYear);
-    await page.waitForTimeout(4000);
+    
     await ordersReviewPage.placeOrderFinal();
     //-----------------------------------------------------------------------------
     const thankYouPage: ThankYouPage = poManager.getThankYouPage();
-    await thankYouPage.validateThankYouMsg();
+   await thankYouPage.validateThankYouMsg();
 
     const orderIdProd: string | null = await thankYouPage.fetchAndReturnOrderId();
 

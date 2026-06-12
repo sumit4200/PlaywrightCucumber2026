@@ -23,7 +23,7 @@ test.beforeAll(async ()=>{
 
 });
 
-test("Place the order playwright route",async({page})=>{
+test("@Web Place the order playwright route",async({page})=>{
 
 
     await page.addInitScript(value=>{

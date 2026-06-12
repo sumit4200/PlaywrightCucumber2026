@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+
 import ExcelJS from 'exceljs';
 
 async function writeExcelTest(
@@ -53,7 +54,7 @@ async function readExcelTest(
     return output;
 }
 
-test('Upload download test validation', async ({ page }) => {
+test.only('Upload download test validation', async ({ page }) => {
 
     await page.goto(
         'https://rahulshettyacademy.com/upload-download-test/index.html'
@@ -67,8 +68,12 @@ test('Upload download test validation', async ({ page }) => {
         page.locator('#downloadButton').click()
     ]);
    console.log("======>" +download.suggestedFilename());
-    const downloadPath =
-        'C:/Users/goyal/Downloads/download.xlsx';
+
+   const downloadPath = `./DownloadExcel/${download.suggestedFilename()}`;
+
+    await download.saveAs(downloadPath);
+
+   
 
     await download.saveAs(downloadPath);
 

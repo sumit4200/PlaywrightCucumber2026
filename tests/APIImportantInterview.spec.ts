@@ -14,8 +14,8 @@ test("Get Request",async({request})=>{
     }
 
   })
- console.log(await response.json());
- console.log( response.status());
+//  console.log(await response.json());
+//  console.log( response.status());
 
 
 

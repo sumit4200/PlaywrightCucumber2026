@@ -1,6 +1,7 @@
 import {expect, FrameLocator, test} from "@playwright/test";
 
-
+//test.describe.configure({mode:'parallel'});
+test.describe.configure({mode:'serial'});
 test("Popup Validations",async({page})=>{
 
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
@@ -14,8 +15,8 @@ test("Popup Validations",async({page})=>{
     page.on('dialog',dialog=>dialog.accept());
     await page.locator("#confirmbtn").click();
 
-    let frameLoc:FrameLocator =  page.frameLocator("");
-    frameLoc.locator("").click();
+    // let frameLoc:FrameLocator =  page.frameLocator("");
+    // frameLoc.locator("").click();
 
 
 });

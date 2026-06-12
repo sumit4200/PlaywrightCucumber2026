@@ -16,18 +16,17 @@ export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
-  workers : 6,
-  
+  workers : 4,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: 1,
   /* Opt out of parallel tests on CI. */
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  timeout:120000,
+  timeout:40000,
   expect:{
-    timeout:20000
+    timeout:5000
   },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -35,8 +34,8 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'off',
-    screenshot: 'on',
+    // trace: 'off',
+    // screenshot: 'on',
     
   },
 
@@ -44,9 +43,25 @@ export default defineConfig({
   projects: [
      {
       name: 'playwright chrome tests',
-      use: { ...devices['Desktop Chrome'] ,headless:false},
+      use: { ...devices['Desktop Chrome'] ,headless:false,
+       
+        trace:'retain-on-failure',
+        video:'retain-on-failure',
+        
+
+
+      },
+
+      //      use: { ...devices['Desktop Chrome'] ,headless:false,...devices['BlackBerry Z30']},
+        //    use: { ...devices['Desktop Chrome'] ,headless:false,viewport:{height:720,width:720}},
+        //      use: { ...devices['Desktop Chrome'] ,headless:false,ignoreHTTPSErrors:true,permissions:['geolocatiom']},
+
 
      },
+    //  {
+    //   name: 'Safari',
+    //    use: { ...devices['Desktop Safari'] ,headless:false},
+    //  }
 
     // {
     //   name: 'firefox',
