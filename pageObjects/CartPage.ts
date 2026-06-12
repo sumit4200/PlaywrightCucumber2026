@@ -16,8 +16,8 @@ export class CartPage{
     {
 
         
-        await this.page.locator("h3:has-Text(productName)").waitFor({state:'visible',timeout:4000});
-        let visibleCoat:boolean = await this.page.locator("h3:has-Text('productName')").isVisible();
+        await this.page.locator(`h3:has-text("${productName}")`).waitFor({state:'visible',timeout:4000});
+        let visibleCoat:boolean = await this.page.locator(`h3:has-text("${productName}")`).isVisible();
         console.log(visibleCoat+"----------------");
         expect(visibleCoat).toBeTruthy();
 

@@ -1,0 +1,22 @@
+[
+  {
+    "userName":"goyalsumit319@gmail.com",
+    "password":"Subh@1987#!",
+    "productName":"ZARA COAT 3",
+    "cardNumber": "4542993192922293",
+    "cvv": "587",
+    "cardName": "Sumit Goyal",
+    "expiryMonth": "04",
+    "expiryYear": "17"
+  },
+  {
+     "userName":"goyalsumit319@gmail.com",
+    "password":"Subh@1987#!",
+    "productName":"ADIDAS ORIGINAL",
+    "cardNumber": "9999999999992293",
+    "cvv": "991",
+    "cardName": "Rajat Patidar",
+    "expiryMonth": "09",
+    "expiryYear": "15"
+  }
+]

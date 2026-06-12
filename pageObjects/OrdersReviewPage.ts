@@ -72,11 +72,11 @@ export class OrdersReviewPage{
     async fillCardDetails(creditCard:string,cvv:string,cardName:string,expiryMonth:string,expiryYear:string):Promise<void>
     {
 
-        await this.creditCard.first().fill("4542 1111 9111 2111");
-        await this.cvvCode.first().fill("987");
-        await this.cardName.last().fill("Sumit Goyal");
-        await this.expiryMonth.first().selectOption("09");
-        await this.expiryYear.last().selectOption("30");
+        await this.creditCard.first().fill(creditCard);
+        await this.cvvCode.first().fill(cvv);
+        await this.cardName.last().fill(cardName);
+        await this.expiryMonth.first().selectOption(expiryMonth);
+        await this.expiryYear.last().selectOption(expiryYear);
     
 
     }
