@@ -19,20 +19,8 @@ Given(
         userName: string,
         password: string
     ) {
-        const browser: Browser = await chromium.launch({
-            channel: "chrome",
-            headless: false,
-        });
-
-        const context: BrowserContext = await browser.newContext();
-        const page: Page = await context.newPage();
-
-        this.page = page;
-        this.poManager = new POManager(page);
-        this.browser = browser;
-
+        
         const loginPage: LoginPage = this.poManager.getLoginPage();
-
         await loginPage.goTo();
         await loginPage.validLogin(userName, password);
     }

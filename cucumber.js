@@ -3,7 +3,8 @@ module.exports = {
     requireModule: ["ts-node/register"],
     require: [
       "features/step_definitions/**/*.ts",
-      "test-base.ts"
-    ]
+      "features/support/*.ts"
+    ],
+    publishQuiet: true
   }
 };
